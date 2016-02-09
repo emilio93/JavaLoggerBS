@@ -1,0 +1,5 @@
+# Fuentes compiladas
+*.class
+
+# Directorio(predeterminado) con logs
+logs/
