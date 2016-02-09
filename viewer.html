@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="LogViewer">
+    <head>
+        <meta charset="utf-8">
+        <title>Log Viewer</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="container" ng-controller="LogCtrl">
+            <hr>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="optsLog" class="col-sm-2 control-label">Seleccione un log:</label>
+                    <div class="col-sm-8">
+                        <select id="optsLog" class="form-control" ng-click="loadData()" ng-model="selectedLog">
+                            <option value=""></option>
+                            <option ng-repeat="log in logs">{{log}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-default" ng-change="selectLog()">Cargar Log</button>
+                    </div>
+                </div>
+            </form>
+            <hr>
+
+            <div class="">
+                <table class="table">
+                    <tr>
+                        <td>Fecha</td>
+                        <td>Logger</td>
+                        <td>Level</td>
+                        <td>Class</td>
+                        <td>Method</td>
+                        <td>Thread</td>
+                        <td>Message</td>
+                    </tr>
+                    <tr ng-repeat="record in logInfo.record">
+                        <td ng-bind="record.date"></td>
+                        <td ng-bind="record.logger"></td>
+                        <td ng-bind="record.level"></td>
+                        <td ng-bind="record.class"></td>
+                        <td ng-bind="record.method"></td>
+                        <td ng-bind="record.thread"></td>
+                        <td ng-bind="record.message"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </body>
+</html>
