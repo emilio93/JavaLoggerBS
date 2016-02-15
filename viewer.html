@@ -14,13 +14,13 @@
                 <div class="form-group">
                     <label for="optsLog" class="col-sm-2 control-label">Seleccione un log:</label>
                     <div class="col-sm-8">
-                        <select id="optsLog" class="form-control" ng-click="loadData()" ng-model="selectedLog">
+                        <select id="optsLog" class="form-control" ng-change="loadData()" ng-model="selectedLog">
                             <option value=""></option>
                             <option ng-repeat="log in logs">{{log}}</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
-                        <button type="button" class="btn btn-default" ng-change="selectLog()">Cargar Log</button>
+                        <button type="button" class="btn btn-default" ng-click="selectLog()">Cargar Log</button>
                     </div>
                 </div>
             </form>
