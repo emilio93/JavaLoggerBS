@@ -30,6 +30,6 @@ LogViewer.controller('LogCtrl', ['$scope', '$http', function($scope, $http) {
         .then( function(response){ $scope.logInfo = response.data; });
         $scope.loadLogs();
     }
-    
+
     $scope.loadLogs();
 }]);
