@@ -5,8 +5,26 @@
  */
 
 var LogViewer = angular.module('LogViewer', []);
+LogViewer.factory('LogAccess', ['$http', function() {
+    var source = {};
+    source.getLogList = function() {
+        return $http({
+            method: 'POST',
+            url: 'worker.php',
+            data: {request: 'logList'}
+        });
+    };
+    
+    source.getLogFile = function(logFile) {
+        return $http({
+            method: 'POST',
+            url: 'worker.php',
+            data: {request: 'getLog', logFile: logFile}
+        });
+    };
+}])
 
-LogViewer.controller('LogCtrl', ['$scope', '$http', function($scope, $http) {
+LogViewer.controller('LogCtrl', ['$scope', '$http', 'LogAccess' function($scope, $http, LogAccess) {
 
     // El worker que responde a los requests.
     var url = 'worker.php';
@@ -14,22 +32,16 @@ LogViewer.controller('LogCtrl', ['$scope', '$http', function($scope, $http) {
     // La lista de archivos.
     $scope.logs = [];
 
-    // El contenido del archivo cargado.
-    $scope.xml = '';
-
     // Carga la lista de los archivos.
     $scope.loadLogs = function() {
-        var smt;
-        $http.post(url, {'request': 'logList'})
-        .then( function(response) { $scope.logs = response.data; });
-    }
+        LogAccess.getLogList().then(function(response){$scope.logs = response.data;});
+    };
 
     // Carga el archivo seleccionado.
     $scope.selectLog = function() {
-        $http.post(url, {'request': 'getLog', 'logFile': $scope.selectedLog})
-        .then( function(response){ $scope.logInfo = response.data; });
+        LogAccess.getLogFile($scope.selectedLog).then(function(response){$scope.logInfo = response.data;});
         $scope.loadLogs();
-    }
+    };
 
     $scope.loadLogs();
 }]);
