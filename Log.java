@@ -1,3 +1,5 @@
+package com.dvlpxl.logbs;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

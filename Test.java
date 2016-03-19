@@ -1,3 +1,5 @@
+package com.dvlpxl.logbs;
+
 import java.util.logging.Logger;
 
 /**
@@ -5,7 +7,7 @@ import java.util.logging.Logger;
  * @author Emilio Rojas
  * @version 1.0 9/2/2016.
  */
-public class Main {
+public class Test {
 
     /**
      * El Logger para la clase Main.
@@ -17,7 +19,7 @@ public class Main {
 
     /**
      * El método main se ejecuta al ejecutar la aplicación.
-     * 
+     *
      * @param args Parámetros.
      */
     public static void main(String[] args) {

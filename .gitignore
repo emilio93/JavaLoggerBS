@@ -1,5 +1,6 @@
 # Fuentes compiladas
 *.class
+*.jar
 
 # Directorio(predeterminado) con logs
 logs/

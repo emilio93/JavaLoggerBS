@@ -32,6 +32,7 @@ http://localhost/logger/viewer.html
                  array_push($logs, $i);
              }
          }
+         // Uhhh da bueaty json.
          return json_encode($logs);
      }
 
@@ -54,4 +55,6 @@ switch ($post->request) {
     case "getLog":
         echo $w->getLog($post->logFile);
         break;
+    default:
+        echo 'Sorry pal';
 }
