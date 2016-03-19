@@ -15,7 +15,7 @@ public class Test {
      * notese que se utiliza el nombre de la clase, ie. Main.class.getName() en
      * este caso.
      */
-    private static final Logger log = Logger.getLogger(Main.class.getName());
+    private static final Logger log = Logger.getLogger(Test.class.getName());
 
     /**
      * El método main se ejecuta al ejecutar la aplicación.

@@ -1,8 +1,13 @@
 package com.dvlpxl.logbs;
 
+//handling the file output
 import java.io.File;
+
+// handling the dating system
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+// handling the logging stuff
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,15 +18,16 @@ import java.util.logging.Logger;
  * @version 1.0 9/2/2016.
  */
 public class Log {
+
     /**
      * El nivel al cual se realizan los logs.<br>
-     * El valor predeterminado es <pre>Level.ALL</pre>.
+     * El valor predeterminado es <tt>Level.ALL</tt>.
      */
     private static final Level LEVEL = Level.ALL;
 
     /**
      * La ruta donde se almacenaran los logs.<br>
-     * El valor predeterminado es logs.
+     * El valor predeterminado es <tt>logs</tt>.
      */
     private static final String LOG_PATH = "logs";
 
@@ -29,7 +35,6 @@ public class Log {
     /**
      * Intenta asegurarse que el directorio para los logs exista, sino se logra
      * devuelve false.
-     *
      * @return True si existe el directorio, false en caso contrario.
      */
     private static boolean checkDir() {
